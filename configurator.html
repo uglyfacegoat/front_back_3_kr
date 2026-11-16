@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Конфигуратор ПК — BuildPC</title>
+  <meta name="description" content="Соберите компьютер из комплектующих каталога и проверьте совместимость.">
+  <script src="js/theme.js"></script>
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Перейти к содержанию</a>
+
+  <header class="site-header sticky-top" data-header>
+    <nav class="navbar navbar-expand-lg site-header__nav" aria-label="Основное меню">
+      <div class="container">
+        <a class="navbar-brand site-logo" href="index.html" aria-label="BuildPC — на главную"><span class="site-logo__mark" aria-hidden="true"></span><span>Build<span class="site-logo__accent">PC</span></span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+          aria-controls="mainNav" aria-expanded="false" aria-label="Открыть меню">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto site-nav">
+            <li class="nav-item"><a class="nav-link site-nav__link" href="index.html">Главная</a></li>
+            <li class="nav-item"><a class="nav-link site-nav__link" href="catalog.html">Каталог</a></li>
+            <li class="nav-item"><a class="nav-link site-nav__link" href="configurator.html" aria-current="page">Конфигуратор</a></li>
+            <li class="nav-item"><a class="nav-link site-nav__link" href="delivery.html">Доставка</a></li>
+            <li class="nav-item"><a class="nav-link site-nav__link" href="contacts.html">Контакты</a></li>
+          </ul>
+          <a class="btn btn--ghost site-header__account" href="account.html">Личный кабинет</a>
+        </div>
+        <div class="site-header__tools">
+          <a class="btn btn--ghost site-header__build site-header__tool" href="configurator.html" data-build-cart aria-label="Корзина" title="Корзина"><svg class="ui-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.5 11h10.8L21 8H7"/><circle cx="9" cy="19" r="1"/><circle cx="18" cy="19" r="1"/></svg></a>
+          <button class="btn btn--quiet site-header__tool" type="button" data-site-search aria-label="Поиск по сайту" title="Поиск по сайту"><svg class="ui-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg></button>
+          <button class="btn btn--quiet site-header__tool" type="button" data-theme-toggle aria-label="Включить тёмную тему" title="Переключить тему"><svg class="ui-icon theme-icon--dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M20 15A8.5 8.5 0 0 1 9 4a8.5 8.5 0 1 0 11 11Z"/></svg><svg class="ui-icon theme-icon--light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19m0-14-1.4 1.4M6.4 17.6 5 19"/></svg></button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div class="container">
+      <header class="page-head">
+        <nav aria-label="Хлебные крошки">
+          <ol class="breadcrumb breadcrumbs">
+            <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Конфигуратор</li>
+          </ol>
+        </nav>
+        <h1 class="page-head__title">Конфигуратор ПК</h1>
+        <p class="page-head__lead">Выберите деталь для каждого слота. Стоимость и совместимость пересчитываются сразу, сборка сохраняется в браузере.</p>
+      </header>
+
+      <div class="configurator">
+        <section aria-labelledby="slotsTitle">
+          <h2 class="visually-hidden" id="slotsTitle">Комплектующие сборки</h2>
+
+          <div class="build-progress">
+            <div class="build-progress__text">
+              <span data-progress-text>Выбрано 0 из 7 обязательных деталей</span>
+              <span class="build-progress__status" data-progress-status></span>
+            </div>
+            <div class="progress build-progress__bar" role="progressbar" aria-label="Готовность сборки" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-progress-bar>
+              <div class="progress-bar" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <div class="presets-bar">
+            <span class="presets-bar__label">Начать с готовой сборки:</span>
+            <div class="presets-bar__list" data-preset-buttons></div>
+          </div>
+
+          <ul class="slots" data-slots></ul>
+        </section>
+
+        <aside class="summary" id="summary" aria-labelledby="summaryTitle">
+          <div class="summary__head">
+            <h2 class="summary__label" id="summaryTitle">Итоговая стоимость</h2>
+            <p class="summary__total" data-total aria-live="polite">0 ₽</p>
+            <p class="summary__note">По ценам каталога</p>
+          </div>
+
+          <div class="summary__section">
+            <label class="summary__title d-block" for="budget">Мой бюджет, ₽</label>
+            <input class="form-control" type="number" id="budget" min="0" step="1" inputmode="numeric" placeholder="Например, 100000">
+            <div class="budget" data-budget hidden>
+              <div class="progress budget__bar" role="progressbar" aria-label="Использование бюджета" aria-valuemin="0" aria-valuemax="100" data-budget-bar>
+                <div class="progress-bar"></div>
+              </div>
+              <p class="budget__text" data-budget-text></p>
+            </div>
+          </div>
+
+          <div class="summary__section">
+            <h3 class="summary__title">Совместимость</h3>
+            <ul class="checks" data-checks aria-live="polite"></ul>
+          </div>
+
+          <div class="summary__section">
+            <h3 class="summary__title">Питание</h3>
+            <dl class="summary__power mb-1"><dt>Оценка потребления</dt><dd data-power-load>—</dd></dl>
+            <dl class="summary__power"><dt>Рекомендуемый блок</dt><dd data-power-rec>—</dd></dl>
+          </div>
+
+          <div class="summary__section summary__actions">
+            <a class="btn btn--accent" href="account.html" data-account-order hidden>Заказать сборку</a>
+            <a class="btn btn--ghost" href="account.html" data-account-save hidden>Сохранить в кабинете</a>
+            <button class="btn btn--ghost" type="button" data-share>Скопировать ссылку на сборку</button>
+            <button class="btn btn--ghost" type="button" data-copy>Скопировать список</button>
+            <button class="btn btn--ghost" type="button" data-download>Скачать список .txt</button>
+            <button class="btn btn--quiet" type="button" data-clear>Очистить сборку</button>
+          </div>
+        </aside>
+      </div>
+
+      <section class="section internal-guide" aria-labelledby="beforePurchase">
+        <div class="section__head"><h2 class="section__title" id="beforePurchase">Перед покупкой комплектующих</h2></div>
+        <div class="support-topics">
+          <article class="contact-card">
+            <h3 class="contact-card__title">Проверьте точные модели</h3>
+            <p class="mb-0">У похожих моделей платы может отличаться тип памяти. Сверьте артикул, разъёмы питания и версию BIOS.</p>
+          </article>
+          <article class="contact-card">
+            <h3 class="contact-card__title">Учтите место в корпусе</h3>
+            <p class="mb-0">Сравните зазоры видеокарты, радиатора и модулей памяти по чертежу корпуса.</p>
+          </article>
+          <article class="contact-card">
+            <h3 class="contact-card__title">Возьмите список с собой</h3>
+            <p class="mb-0">Скачайте TXT или сохраните сборку в кабинете. По списку проще сверить цены и наличие.</p>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <div class="mobile-total" data-mobile-total>
+      <div>
+        <span class="mobile-total__label">Итого</span>
+        <strong class="mobile-total__price" data-mobile-price>0 ₽</strong>
+      </div>
+      <a class="btn btn-sm btn--accent" href="#summary">Итоги и проверка</a>
+    </div>
+
+    <dialog class="copy-dialog" id="copyDialog" aria-labelledby="copyTitle">
+      <form method="dialog">
+        <h2 id="copyTitle">Скопируйте выделенный текст</h2>
+        <textarea id="copyValue" class="form-control" aria-label="Текст для копирования" readonly rows="7"></textarea>
+        <button class="btn btn--accent mt-3">Закрыть</button>
+      </form>
+    </dialog>
+
+    <div class="modal fade" id="pickerModal" tabindex="-1" aria-labelledby="pickerTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title product-modal__title" id="pickerTitle">Выбор</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+          </div>
+          <div class="modal-body">
+            <div class="picker__tools">
+              <div>
+                <label class="visually-hidden" for="pickerSearch">Поиск по названию</label>
+                <input class="form-control" type="search" id="pickerSearch" placeholder="Поиск по названию" autocomplete="off">
+              </div>
+              <div>
+                <label class="visually-hidden" for="pickerBrand">Производитель</label>
+                <select class="form-select" id="pickerBrand"></select>
+              </div>
+              <div>
+                <label class="visually-hidden" for="pickerSort">Сортировка</label>
+                <select class="form-select" id="pickerSort">
+                  <option value="popular">Сначала популярные</option>
+                  <option value="price-asc">Сначала дешёвые</option>
+                  <option value="price-desc">Сначала дорогие</option>
+                </select>
+              </div>
+            </div>
+            <div class="picker__bar">
+              <div class="form-check form-switch m-0">
+                <input class="form-check-input" type="checkbox" role="switch" id="pickerCompatible" checked>
+                <label class="form-check-label" for="pickerCompatible">Только совместимые</label>
+              </div>
+              <span class="picker__count" data-picker-count aria-live="polite"></span>
+            </div>
+            <ul class="picker__list" data-picker-list></ul>
+            <div class="empty-state" data-picker-empty hidden>
+              <p class="empty-state__title">Ничего не найдено</p>
+              <p class="empty-state__text mb-0" data-picker-empty-text></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <noscript><p class="container py-3">Для каталога, конфигуратора и формы обратной связи включите JavaScript.</p></noscript>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <a class="site-logo" href="index.html">
+            <span class="site-logo__mark" aria-hidden="true"></span>
+            <span>Build<span class="site-logo__accent">PC</span></span>
+          </a>
+          <p class="site-footer__about">Подбор комплектующих и проверка совместимости сборки ПК.</p>
+        </div>
+        <nav aria-label="Навигация в подвале">
+          <h2 class="site-footer__title">Навигация</h2>
+          <ul class="site-footer__nav">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="catalog.html">Каталог</a></li>
+            <li><a href="configurator.html">Конфигуратор</a></li>
+            <li><a href="delivery.html">Доставка</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2 class="site-footer__title">Контакты</h2>
+          <address class="site-footer__contacts">
+            <span>Завгороднев Ярослав Александрович<br><small>Главный менеджер</small></span>
+            <div class="site-footer__actions">
+              <a class="btn btn-sm btn--footer" href="tel:+79670906381"><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7l.5 3.2a2 2 0 0 1-.5 2.1l-1.2 1.2a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5l3.2.5a2 2 0 0 1 1.7 1.9Z"/></svg> +7 (967) 090-63-81</a>
+              <a class="btn btn-sm btn--footer" href="mailto:unit90780@gmail.com"><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg> unit90780@gmail.com</a>
+            </div>
+          </address>
+        </div>
+        <div>
+          <h2 class="site-footer__title"><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Когда звонить</h2>
+          <p class="mb-0">Пн–Пт, 10:00–19:00 по Москве.<br>На почту можно написать в любое время.</p>
+          <h2 class="site-footer__title mt-3">BuildPC в Москве</h2>
+          <a class="btn btn-sm btn--footer site-footer__map" href="https://yandex.ru/maps/?text=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%92%D0%BE%D0%BB%D0%B3%D0%BE%D0%B3%D1%80%D0%B0%D0%B4%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%2C%2021%2C%20%D1%81%D1%82%D1%80.%2010" target="_blank" rel="noopener">
+            <svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 10c0 5-7 10-7 10s-7-5-7-10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2"/></svg> Москва, Волгоградский проспект, 21, стр. 10
+          </a>
+        </div>
+      </div>
+      <section class="site-footer__team" aria-labelledby="footerTeam">
+        <h2 class="site-footer__title" id="footerTeam">Команда <small>· демонстрационные контакты</small></h2>
+        <ul>
+          <li><strong>Алина Петровна</strong><span>Менеджер</span><span><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7l.5 3.2a2 2 0 0 1-.5 2.1l-1.2 1.2a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5l3.2.5a2 2 0 0 1 1.7 1.9Z"/></svg> 8 925 774 8374</span><span><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Пн–Пт, 10:00–18:00 МСК</span></li>
+          <li><strong>Егор Смирнов</strong><span>Возвраты</span><span><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7l.5 3.2a2 2 0 0 1-.5 2.1l-1.2 1.2a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5l3.2.5a2 2 0 0 1 1.7 1.9Z"/></svg> 8 925 774 8734</span><span><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Вт–Сб, 11:00–19:00 МСК</span></li>
+          <li><strong>Дмитрий Волков</strong><span>Мастер по сборке</span><span><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7l.5 3.2a2 2 0 0 1-.5 2.1l-1.2 1.2a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5l3.2.5a2 2 0 0 1 1.7 1.9Z"/></svg> 8 925 774 8347</span><span><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Ср–Вс, 12:00–20:00 МСК</span></li>
+        </ul>
+      </section>
+      <div class="site-footer__bottom">
+        <span>© 2026 BuildPC. Все права защищены.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/compat.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/site-search.js"></script>
+  <script src="js/configurator.js"></script>
+</body>
+</html>

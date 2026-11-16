@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Доставка и самовывоз — BuildPC</title>
+  <meta name="description" content="Тарифы доставки в Москве, за МКАД и по России. Самовывоз, СДЭК и Яндекс Доставка.">
+  <script src="js/theme.js"></script>
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Перейти к содержанию</a>
+
+  <header class="site-header sticky-top" data-header>
+    <nav class="navbar navbar-expand-lg site-header__nav" aria-label="Основное меню">
+      <div class="container">
+        <a class="navbar-brand site-logo" href="index.html" aria-label="BuildPC — на главную"><span class="site-logo__mark" aria-hidden="true"></span><span>Build<span class="site-logo__accent">PC</span></span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+          aria-controls="mainNav" aria-expanded="false" aria-label="Открыть меню">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto site-nav">
+            <li class="nav-item"><a class="nav-link site-nav__link" href="index.html">Главная</a></li>
+            <li class="nav-item"><a class="nav-link site-nav__link" href="catalog.html">Каталог</a></li>
+            <li class="nav-item"><a class="nav-link site-nav__link" href="configurator.html">Конфигуратор</a></li>
+            <li class="nav-item"><a class="nav-link site-nav__link" href="delivery.html" aria-current="page">Доставка</a></li>
+            <li class="nav-item"><a class="nav-link site-nav__link" href="contacts.html">Контакты</a></li>
+          </ul>
+          <a class="btn btn--ghost site-header__account" href="account.html">Личный кабинет</a>
+        </div>
+        <div class="site-header__tools">
+          <a class="btn btn--ghost site-header__build site-header__tool" href="configurator.html" data-build-cart aria-label="Корзина" title="Корзина"><svg class="ui-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.5 11h10.8L21 8H7"/><circle cx="9" cy="19" r="1"/><circle cx="18" cy="19" r="1"/></svg></a>
+          <button class="btn btn--quiet site-header__tool" type="button" data-site-search aria-label="Поиск по сайту" title="Поиск по сайту"><svg class="ui-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg></button>
+          <button class="btn btn--quiet site-header__tool" type="button" data-theme-toggle aria-label="Включить тёмную тему" title="Переключить тему"><svg class="ui-icon theme-icon--dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M20 15A8.5 8.5 0 0 1 9 4a8.5 8.5 0 1 0 11 11Z"/></svg><svg class="ui-icon theme-icon--light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19m0-14-1.4 1.4M6.4 17.6 5 19"/></svg></button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div class="container">
+      <header class="page-head">
+        <nav aria-label="Хлебные крошки"><ol class="breadcrumb breadcrumbs">
+          <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Доставка</li>
+        </ol></nav>
+        <h1 class="page-head__title">Доставка и самовывоз</h1>
+        <p class="page-head__lead">Выберите, как получить сборку, и посчитайте стоимость до оформления.</p>
+      </header>
+
+      <div class="delivery-top">
+        <section class="checkout__panel" aria-labelledby="deliveryCalc">
+          <h2 id="deliveryCalc">Рассчитать стоимость</h2>
+          <div class="delivery-calc">
+            <label class="form-label" for="calcZone">Куда доставить</label>
+            <select class="form-select" id="calcZone"></select>
+            <label class="form-label mt-3" for="calcMethod">Способ получения</label>
+            <select class="form-select" id="calcMethod"></select>
+          </div>
+          <div class="delivery-result" aria-live="polite"><strong data-delivery-total></strong><span data-delivery-days></span></div>
+        </section>
+
+        <section class="checkout__panel delivery-pickup" aria-labelledby="pickupTitle">
+          <h2 id="pickupTitle">Самовывоз в Москве</h2>
+          <p class="delivery-results__price">Бесплатно</p>
+          <p>Пример адреса пункта выдачи для оформления. Дату и время самовывоза уточняйте у фактического продавца.</p>
+          <a class="btn btn--ghost" data-delivery-map target="_blank" rel="noopener">Открыть адрес на карте</a>
+        </section>
+      </div>
+
+      <section class="section" aria-labelledby="ratesTitle">
+        <div class="section__head">
+          <div><h2 class="section__title" id="ratesTitle">Тарифы по зонам</h2>
+          <p class="section__lead">Цены и сроки используются в расчёте заявки BuildPC.</p></div>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle delivery-table">
+            <thead><tr><th scope="col">Зона</th><th scope="col">СДЭК</th><th scope="col">Яндекс Доставка</th><th scope="col">Срок</th></tr></thead>
+            <tbody data-delivery-rates></tbody>
+          </table>
+        </div>
+        <p class="checkout__note">За пределами 30 км от МКАД выбирайте «Другие города России». Праздники могут влиять на сроки.</p>
+      </section>
+
+      <section class="section delivery-terms" aria-labelledby="termsTitle">
+        <div class="section__head"><h2 class="section__title" id="termsTitle">Условия по зонам</h2></div>
+        <div class="support-topics">
+          <article class="contact-card">
+            <h3 class="contact-card__title">В пределах МКАД</h3>
+            <p>Укажите район, подъезд и удобный интервал в адресе. Для получения подготовьте номер заявки и телефон, который указали при оформлении.</p>
+            <span class="delivery-term__price">от 490 ₽ · 1–2 рабочих дня</span>
+          </article>
+          <article class="contact-card">
+            <h3 class="contact-card__title">За МКАД</h3>
+            <p>Тариф действует до 30 км от МКАД. Для частного дома укажите населённый пункт, улицу, номер дома и ориентир для подъезда.</p>
+            <span class="delivery-term__price">от 790 ₽ · 2–3 рабочих дня</span>
+          </article>
+          <article class="contact-card">
+            <h3 class="contact-card__title">В другой город</h3>
+            <p>Выберите зону «Другие города России». Добавьте индекс и полный адрес, чтобы можно было уточнить доставку у фактического продавца.</p>
+            <span class="delivery-term__price">от 1 190 ₽ · 3–7 рабочих дней</span>
+          </article>
+        </div>
+        <div class="delivery-packing">
+          <h3>Упаковка и проверка</h3>
+          <p>При получении осмотрите коробку и сверяйте комплектующие по сохранённому списку. Если видны повреждения, сфотографируйте упаковку и обратитесь к продавцу до включения ПК.</p>
+        </div>
+      </section>
+
+      <section class="section internal-guide" aria-labelledby="deliveryNotes">
+        <div class="section__head"><h2 class="section__title" id="deliveryNotes">Как получить сборку</h2></div>
+        <div class="support-topics">
+          <article class="contact-card"><h3 class="contact-card__title">Укажите адрес</h3>
+            <p class="mb-0">Для курьера укажите город, улицу, дом и квартиру. В кабинете можно выбрать сохранённый адрес.</p></article>
+          <article class="contact-card"><h3 class="contact-card__title">Выберите оплату</h3>
+            <p class="mb-0">В заявке можно указать наличные, карту при получении или онлайн-оплату. Сайт сохраняет выбранный вариант локально.</p></article>
+          <article class="contact-card"><h3 class="contact-card__title">Проверьте комплектность</h3>
+            <p class="mb-0">Сверьте перечень деталей из конфигуратора с заявкой. По вопросам покупки и возврата обращайтесь к продавцу.</p></article>
+        </div>
+        <a class="btn btn--accent mt-4" href="configurator.html">Перейти к сборке</a>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <a class="site-logo" href="index.html">
+            <span class="site-logo__mark" aria-hidden="true"></span>
+            <span>Build<span class="site-logo__accent">PC</span></span>
+          </a>
+          <p class="site-footer__about">Подбор комплектующих и проверка совместимости сборки ПК.</p>
+        </div>
+        <nav aria-label="Навигация в подвале">
+          <h2 class="site-footer__title">Навигация</h2>
+          <ul class="site-footer__nav">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="catalog.html">Каталог</a></li>
+            <li><a href="configurator.html">Конфигуратор</a></li>
+            <li><a href="delivery.html">Доставка</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2 class="site-footer__title">Контакты</h2>
+          <address class="site-footer__contacts">
+            <span>Завгороднев Ярослав Александрович<br><small>Главный менеджер</small></span>
+            <div class="site-footer__actions">
+              <a class="btn btn-sm btn--footer" href="tel:+79670906381"><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7l.5 3.2a2 2 0 0 1-.5 2.1l-1.2 1.2a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5l3.2.5a2 2 0 0 1 1.7 1.9Z"/></svg> +7 (967) 090-63-81</a>
+              <a class="btn btn-sm btn--footer" href="mailto:unit90780@gmail.com"><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg> unit90780@gmail.com</a>
+            </div>
+          </address>
+        </div>
+        <div>
+          <h2 class="site-footer__title"><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Когда звонить</h2>
+          <p class="mb-0">Пн–Пт, 10:00–19:00 по Москве.<br>На почту можно написать в любое время.</p>
+          <h2 class="site-footer__title mt-3">BuildPC в Москве</h2>
+          <a class="btn btn-sm btn--footer site-footer__map" href="https://yandex.ru/maps/?text=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%92%D0%BE%D0%BB%D0%B3%D0%BE%D0%B3%D1%80%D0%B0%D0%B4%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%2C%2021%2C%20%D1%81%D1%82%D1%80.%2010" target="_blank" rel="noopener">
+            <svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 10c0 5-7 10-7 10s-7-5-7-10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2"/></svg> Москва, Волгоградский проспект, 21, стр. 10
+          </a>
+        </div>
+      </div>
+      <section class="site-footer__team" aria-labelledby="footerTeam">
+        <h2 class="site-footer__title" id="footerTeam">Команда <small>· демонстрационные контакты</small></h2>
+        <ul>
+          <li><strong>Алина Петровна</strong><span>Менеджер</span><span><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7l.5 3.2a2 2 0 0 1-.5 2.1l-1.2 1.2a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5l3.2.5a2 2 0 0 1 1.7 1.9Z"/></svg> 8 925 774 8374</span><span><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Пн–Пт, 10:00–18:00 МСК</span></li>
+          <li><strong>Егор Смирнов</strong><span>Возвраты</span><span><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7l.5 3.2a2 2 0 0 1-.5 2.1l-1.2 1.2a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5l3.2.5a2 2 0 0 1 1.7 1.9Z"/></svg> 8 925 774 8734</span><span><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Вт–Сб, 11:00–19:00 МСК</span></li>
+          <li><strong>Дмитрий Волков</strong><span>Мастер по сборке</span><span><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7l.5 3.2a2 2 0 0 1-.5 2.1l-1.2 1.2a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5l3.2.5a2 2 0 0 1 1.7 1.9Z"/></svg> 8 925 774 8347</span><span><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Ср–Вс, 12:00–20:00 МСК</span></li>
+        </ul>
+      </section>
+      <div class="site-footer__bottom">
+        <span>© 2026 BuildPC. Все права защищены.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/compat.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/site-search.js"></script>
+  <script src="js/fulfillment.js"></script>
+  <script src="js/delivery.js"></script>
+</body>
+</html>

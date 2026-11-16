@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BuildPC — конфигуратор для сборки компьютера</title>
+  <meta name="description" content="Подберите комплектующие, рассчитайте стоимость и проверьте совместимость сборки ПК.">
+  <script src="js/theme.js"></script>
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Перейти к содержанию</a>
+
+  <header class="site-header sticky-top" data-header>
+    <nav class="navbar navbar-expand-lg site-header__nav" aria-label="Основное меню">
+      <div class="container">
+        <a class="navbar-brand site-logo" href="index.html" aria-label="BuildPC — на главную"><span class="site-logo__mark" aria-hidden="true"></span><span>Build<span class="site-logo__accent">PC</span></span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+          aria-controls="mainNav" aria-expanded="false" aria-label="Открыть меню">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto site-nav">
+            <li class="nav-item"><a class="nav-link site-nav__link" href="index.html" aria-current="page">Главная</a></li>
+            <li class="nav-item"><a class="nav-link site-nav__link" href="catalog.html">Каталог</a></li>
+            <li class="nav-item"><a class="nav-link site-nav__link" href="configurator.html">Конфигуратор</a></li>
+            <li class="nav-item"><a class="nav-link site-nav__link" href="delivery.html">Доставка</a></li>
+            <li class="nav-item"><a class="nav-link site-nav__link" href="contacts.html">Контакты</a></li>
+          </ul>
+          <a class="btn btn--ghost site-header__account" href="account.html">Личный кабинет</a>
+        </div>
+        <div class="site-header__tools">
+          <a class="btn btn--ghost site-header__build site-header__tool" href="configurator.html" data-build-cart aria-label="Корзина" title="Корзина"><svg class="ui-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.5 11h10.8L21 8H7"/><circle cx="9" cy="19" r="1"/><circle cx="18" cy="19" r="1"/></svg></a>
+          <button class="btn btn--quiet site-header__tool" type="button" data-site-search aria-label="Поиск по сайту" title="Поиск по сайту"><svg class="ui-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg></button>
+          <button class="btn btn--quiet site-header__tool" type="button" data-theme-toggle aria-label="Включить тёмную тему" title="Переключить тему"><svg class="ui-icon theme-icon--dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M20 15A8.5 8.5 0 0 1 9 4a8.5 8.5 0 1 0 11 11Z"/></svg><svg class="ui-icon theme-icon--light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19m0-14-1.4 1.4M6.4 17.6 5 19"/></svg></button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="home" tabindex="-1">
+    <section class="home-hero" aria-labelledby="heroTitle">
+      <div class="container home-hero__grid">
+        <div>
+          <h1 id="heroTitle">Соберите компьютер под свои задачи</h1>
+          <p>Выберите комплектующие, проверьте, подходят ли они друг к другу, и посчитайте стоимость сборки.</p>
+          <div class="home-hero__actions">
+            <a class="btn btn-lg btn--accent" href="configurator.html">Собрать ПК</a>
+            <a class="btn btn-lg btn--ghost" href="catalog.html">Открыть каталог</a>
+          </div>
+        </div>
+        <figure class="home-hero__photo">
+          <img class="home-hero__tower" src="img/products/hero-build.png" alt="Белый системный блок с видеокартой, материнской платой и другими комплектующими" width="1536" height="1024" fetchpriority="high">
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="categories" aria-labelledby="categoryTitle">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title" id="categoryTitle">Комплектующие</h2>
+          <a class="btn btn--ghost" href="catalog.html">Весь каталог</a>
+        </div>
+        <ul class="home-categories" data-home-categories></ul>
+      </div>
+    </section>
+
+    <section class="section section--gray" id="builds" aria-labelledby="buildsTitle">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <h2 class="section__title" id="buildsTitle">Готовые сборки</h2>
+            <p class="section__lead">Выберите компьютер для игр, работы или учёбы. Состав можно изменить в конфигураторе.</p>
+          </div>
+        </div>
+        <div class="presets" data-presets></div>
+      </div>
+    </section>
+
+    <section class="section" id="features" aria-labelledby="featuresTitle">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title" id="featuresTitle">Как работает подбор</h2>
+        </div>
+        <div class="home-guide">
+          <article class="home-guide__main">
+            <h3>Начните с процессора и платы</h3>
+            <p>В окне выбора включите «Только совместимые», чтобы видеть детали, которые подходят к уже выбранным. Например, к Ryzen 5 7600 подойдёт плата с сокетом AM5 и память DDR5.</p>
+            <a class="btn btn--accent" href="configurator.html">Открыть конфигуратор</a>
+          </article>
+          <article>
+            <h3>Проверьте габариты</h3>
+            <p>В итогах видно, помещаются ли видеокарта и охлаждение в корпус.</p>
+          </article>
+          <article>
+            <h3>Следите за бюджетом</h3>
+            <p>Введите лимит в конфигураторе. Остаток пересчитывается при замене любой детали.</p>
+          </article>
+          <article>
+            <h3>Подберите видеокарту</h3>
+            <p>Для офиса часто хватает встроенной графики. Для игр и 3D добавьте отдельную видеокарту.</p>
+          </article>
+          <article>
+            <h3>Проверьте питание</h3>
+            <p>В сводке есть оценка потребления и рекомендуемая мощность блока питания с запасом.</p>
+          </article>
+          <article>
+            <h3>Сохраните результат</h3>
+            <p>Добавьте сборку в кабинет, скачайте список деталей или скопируйте ссылку.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--gray" id="popular" aria-labelledby="popularTitle">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title" id="popularTitle">Популярные комплектующие</h2>
+          <a class="btn btn--ghost" href="catalog.html">Смотреть весь каталог</a>
+        </div>
+        <div class="product-grid product-grid--home" data-popular></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="reviewsTitle">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <h2 class="section__title" id="reviewsTitle">Отзывы о подборе</h2>
+            <p class="section__lead">Демонстрационные отзывы о разных сценариях сборки.</p>
+          </div>
+          <button class="btn btn--ghost" type="button" data-review-toggle aria-pressed="false" hidden>Пауза</button>
+        </div>
+        <div class="review-ticker" data-review-ticker>
+          <div class="review-ticker__track">
+            <div class="review-ticker__group">
+            <figure class="review-card">
+              <div class="review-card__stars" aria-label="5 из 5 звёзд"><span aria-hidden="true">★★★★★</span></div>
+              <blockquote><p>Взял игровую сборку за основу и поменял корпус. В конфигураторе сразу увидел, подходит ли видеокарта по длине. Отдельно проверил питание и взял блок с запасом.</p></blockquote>
+              <p class="review-card__extra" hidden>Больше всего времени ушло на сравнение двух видеокарт. Сохранил обе версии в кабинете и вернулся к ним вечером, когда посмотрел цены в магазине.</p><button class="btn btn-sm btn--ghost" type="button" data-review-more aria-expanded="false">Развернуть</button>
+              <figcaption><strong>Илья</strong><span>Игровой ПК</span></figcaption>
+            </figure>
+            <figure class="review-card">
+              <div class="review-card__stars" aria-label="5 из 5 звёзд"><span aria-hidden="true">★★★★★</span></div>
+              <blockquote><p>Поставила лимит и сравнила два варианта. После замены памяти было видно, сколько осталось на накопитель, и можно было вернуться к предыдущей конфигурации.</p></blockquote>
+              
+              <figcaption><strong>Полина</strong><span>ПК для учёбы</span></figcaption>
+            </figure>
+            <figure class="review-card">
+              <div class="review-card__stars" aria-label="4 из 5 звёзд"><span aria-hidden="true">★★★★☆</span></div>
+              <blockquote><p>Собирал компьютер под монтаж. Сравнил 32 и 64 ГБ памяти, потом выгрузил список деталей. В магазине пригодились полные названия моделей и итоговая сумма.</p></blockquote>
+              <p class="review-card__extra" hidden>По совместимости всё было понятно. Перед покупкой ещё сверил версию BIOS платы и разъёмы под накопители, как указано в подсказке.</p><button class="btn btn-sm btn--ghost" type="button" data-review-more aria-expanded="false">Развернуть</button>
+              <figcaption><strong>Алексей</strong><span>Рабочая станция</span></figcaption>
+            </figure>
+            <figure class="review-card">
+              <div class="review-card__stars" aria-label="5 из 5 звёзд"><span aria-hidden="true">★★★★★</span></div>
+              <blockquote><p>Выбрала конфигурацию со встроенной графикой и сравнила размеры корпусов. Отдельная видеокарта для моих задач не понадобилась, поэтому в бюджет поместился SSD побольше.</p></blockquote>
+              
+              <figcaption><strong>Марина</strong><span>Компактный ПК</span></figcaption>
+            </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section home-help" id="faq" aria-labelledby="homeHelp">
+      <div class="container">
+        <div class="section__head"><h2 class="section__title" id="homeHelp">Частые вопросы о сборке</h2></div>
+        <div class="accordion faq" id="homeFaq">
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button faq__question" type="button" data-bs-toggle="collapse" data-bs-target="#homeFaq1" aria-expanded="true" aria-controls="homeFaq1">
+                Что именно проверяет конфигуратор?
+              </button>
+            </h3>
+            <div id="homeFaq1" class="accordion-collapse collapse show" data-bs-parent="#homeFaq">
+              <div class="accordion-body faq__answer">Конфигуратор сверяет сокет, память, крепление кулера, форм-фактор платы, размеры видеокарты и охлаждения. Также он оценивает питание и подсказывает, когда нужна отдельная видеокарта.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed faq__question" type="button" data-bs-toggle="collapse" data-bs-target="#homeFaq2" aria-expanded="false" aria-controls="homeFaq2">
+                Гарантирует ли проверка, что компьютер точно заработает?
+              </button>
+            </h3>
+            <div id="homeFaq2" class="accordion-collapse collapse" data-bs-parent="#homeFaq">
+              <div class="accordion-body faq__answer">Проверка охватывает параметры из каталога. Поддержку конкретной версии BIOS, зазоры при установке радиатора и разъёмы питания сверяйте с документацией производителя.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed faq__question" type="button" data-bs-toggle="collapse" data-bs-target="#homeFaq3" aria-expanded="false" aria-controls="homeFaq3">
+                Где хранится моя сборка?
+              </button>
+            </h3>
+            <div id="homeFaq3" class="accordion-collapse collapse" data-bs-parent="#homeFaq">
+              <div class="accordion-body faq__answer">Сборка сохраняется в браузере. Для переноса на другое устройство скопируйте ссылку на сборку. Список комплектующих можно также скачать текстовым файлом.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed faq__question" type="button" data-bs-toggle="collapse" data-bs-target="#homeFaq4" aria-expanded="false" aria-controls="homeFaq4">
+                Насколько актуальны цены?
+              </button>
+            </h3>
+            <div id="homeFaq4" class="accordion-collapse collapse" data-bs-parent="#homeFaq">
+              <div class="accordion-body faq__answer">Цены ориентировочные и нужны для оценки бюджета. Точную стоимость уточняйте в магазине.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed faq__question" type="button" data-bs-toggle="collapse" data-bs-target="#homeFaq5" aria-expanded="false" aria-controls="homeFaq5">
+                Как рассчитывается мощность блока питания?
+              </button>
+            </h3>
+            <div id="homeFaq5" class="accordion-collapse collapse" data-bs-parent="#homeFaq">
+              <div class="accordion-body faq__answer">Складываем потребление процессора и видеокарты, добавляем около 100 Вт на остальные компоненты и закладываем запас 30%. Результат округляем до 50 Вт вверх.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <noscript><p class="container py-3">Для каталога, конфигуратора и формы обратной связи включите JavaScript.</p></noscript>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <a class="site-logo" href="index.html">
+            <span class="site-logo__mark" aria-hidden="true"></span>
+            <span>Build<span class="site-logo__accent">PC</span></span>
+          </a>
+          <p class="site-footer__about">Подбор комплектующих и проверка совместимости сборки ПК.</p>
+        </div>
+        <nav aria-label="Навигация в подвале">
+          <h2 class="site-footer__title">Навигация</h2>
+          <ul class="site-footer__nav">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="catalog.html">Каталог</a></li>
+            <li><a href="configurator.html">Конфигуратор</a></li>
+            <li><a href="delivery.html">Доставка</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2 class="site-footer__title">Контакты</h2>
+          <address class="site-footer__contacts">
+            <span>Завгороднев Ярослав Александрович<br><small>Главный менеджер</small></span>
+            <div class="site-footer__actions">
+              <a class="btn btn-sm btn--footer" href="tel:+79670906381"><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7l.5 3.2a2 2 0 0 1-.5 2.1l-1.2 1.2a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5l3.2.5a2 2 0 0 1 1.7 1.9Z"/></svg> +7 (967) 090-63-81</a>
+              <a class="btn btn-sm btn--footer" href="mailto:unit90780@gmail.com"><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg> unit90780@gmail.com</a>
+            </div>
+          </address>
+        </div>
+        <div>
+          <h2 class="site-footer__title"><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Когда звонить</h2>
+          <p class="mb-0">Пн–Пт, 10:00–19:00 по Москве.<br>На почту можно написать в любое время.</p>
+          <h2 class="site-footer__title mt-3">BuildPC в Москве</h2>
+          <a class="btn btn-sm btn--footer site-footer__map" href="https://yandex.ru/maps/?text=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%92%D0%BE%D0%BB%D0%B3%D0%BE%D0%B3%D1%80%D0%B0%D0%B4%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%2C%2021%2C%20%D1%81%D1%82%D1%80.%2010" target="_blank" rel="noopener">
+            <svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 10c0 5-7 10-7 10s-7-5-7-10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2"/></svg> Москва, Волгоградский проспект, 21, стр. 10
+          </a>
+        </div>
+      </div>
+      <section class="site-footer__team" aria-labelledby="footerTeam">
+        <h2 class="site-footer__title" id="footerTeam">Команда <small>· демонстрационные контакты</small></h2>
+        <ul>
+          <li><strong>Алина Петровна</strong><span>Менеджер</span><span><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7l.5 3.2a2 2 0 0 1-.5 2.1l-1.2 1.2a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5l3.2.5a2 2 0 0 1 1.7 1.9Z"/></svg> 8 925 774 8374</span><span><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Пн–Пт, 10:00–18:00 МСК</span></li>
+          <li><strong>Егор Смирнов</strong><span>Возвраты</span><span><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7l.5 3.2a2 2 0 0 1-.5 2.1l-1.2 1.2a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5l3.2.5a2 2 0 0 1 1.7 1.9Z"/></svg> 8 925 774 8734</span><span><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Вт–Сб, 11:00–19:00 МСК</span></li>
+          <li><strong>Дмитрий Волков</strong><span>Мастер по сборке</span><span><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7l.5 3.2a2 2 0 0 1-.5 2.1l-1.2 1.2a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5l3.2.5a2 2 0 0 1 1.7 1.9Z"/></svg> 8 925 774 8347</span><span><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Ср–Вс, 12:00–20:00 МСК</span></li>
+        </ul>
+      </section>
+      <div class="site-footer__bottom">
+        <span>© 2026 BuildPC. Все права защищены.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/compat.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/site-search.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

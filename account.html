@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Личный кабинет — BuildPC</title>
+  <meta name="description" content="Сохранённые сборки, адреса и история заказов BuildPC.">
+  <script src="js/theme.js"></script>
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Перейти к содержанию</a>
+
+  <header class="site-header sticky-top" data-header>
+    <nav class="navbar navbar-expand-lg site-header__nav" aria-label="Основное меню">
+      <div class="container">
+        <a class="navbar-brand site-logo" href="index.html" aria-label="BuildPC — на главную"><span class="site-logo__mark" aria-hidden="true"></span><span>Build<span class="site-logo__accent">PC</span></span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+          aria-controls="mainNav" aria-expanded="false" aria-label="Открыть меню">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto site-nav">
+            <li class="nav-item"><a class="nav-link site-nav__link" href="index.html">Главная</a></li>
+            <li class="nav-item"><a class="nav-link site-nav__link" href="catalog.html">Каталог</a></li>
+            <li class="nav-item"><a class="nav-link site-nav__link" href="configurator.html">Конфигуратор</a></li>
+            <li class="nav-item"><a class="nav-link site-nav__link" href="delivery.html">Доставка</a></li>
+            <li class="nav-item"><a class="nav-link site-nav__link" href="contacts.html">Контакты</a></li>
+          </ul>
+          <a class="btn btn--ghost site-header__account" href="account.html" aria-current="page">Личный кабинет</a>
+        </div>
+        <div class="site-header__tools">
+          <a class="btn btn--ghost site-header__build site-header__tool" href="configurator.html" data-build-cart aria-label="Корзина" title="Корзина"><svg class="ui-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.5 11h10.8L21 8H7"/><circle cx="9" cy="19" r="1"/><circle cx="18" cy="19" r="1"/></svg></a>
+          <button class="btn btn--quiet site-header__tool" type="button" data-site-search aria-label="Поиск по сайту" title="Поиск по сайту"><svg class="ui-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg></button>
+          <button class="btn btn--quiet site-header__tool" type="button" data-theme-toggle aria-label="Включить тёмную тему" title="Переключить тему"><svg class="ui-icon theme-icon--dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M20 15A8.5 8.5 0 0 1 9 4a8.5 8.5 0 1 0 11 11Z"/></svg><svg class="ui-icon theme-icon--light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19m0-14-1.4 1.4M6.4 17.6 5 19"/></svg></button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div class="container">
+      <header class="page-head">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Личный кабинет</li>
+          </ol>
+        </nav>
+        <h1 class="page-head__title">Личный кабинет</h1>
+        <p class="page-head__lead">Сборки, адреса и заявки на сборку в одном месте.</p>
+      </header>
+
+      <div class="account-auth" data-auth>
+        <section class="account-panel" aria-labelledby="authTitle">
+          <h2 id="authTitle">Войти</h2>
+          <form class="d-grid gap-3" method="post" data-auth-form>
+            <div data-register-field hidden>
+              <label class="form-label" for="accountName">Имя</label>
+              <input class="form-control" id="accountName" name="name" autocomplete="name" minlength="2" maxlength="60">
+            </div>
+            <div>
+              <label class="form-label" for="accountEmail">Электронная почта</label>
+              <input class="form-control" id="accountEmail" name="email" type="email" autocomplete="username" required maxlength="120">
+            </div>
+            <div>
+              <label class="form-label" for="accountPassword">Пароль</label>
+              <input class="form-control" id="accountPassword" name="password" type="password" autocomplete="current-password" required minlength="8" maxlength="128">
+            </div>
+            <div data-password-confirm-field hidden>
+              <label class="form-label" for="accountPasswordConfirm">Повторите пароль</label>
+              <input class="form-control" id="accountPasswordConfirm" name="passwordConfirm" type="password"
+                autocomplete="new-password" minlength="8" maxlength="128" disabled>
+            </div>
+            <button class="btn btn--accent" type="submit" data-auth-submit>Войти</button>
+            <button class="btn btn--ghost" type="button" data-auth-toggle>Создать профиль</button>
+          </form>
+          <p class="account-message" role="status" data-auth-message></p>
+        </section>
+        <div class="account-intro">
+          <h2>Что доступно в кабинете</h2>
+          <ul class="contact-notes">
+            <li>Сохраняйте сборки и возвращайтесь к ним позже.</li>
+            <li>Храните адреса и привязывайте их к заявкам.</li>
+            <li>Ведите историю заказов и следите за скидкой.</li>
+          </ul>
+          <p>Профиль и вход сохраняются в этом браузере. Выберите отдельный пароль для BuildPC.</p>
+        </div>
+      </div>
+
+      <div class="account-dashboard" data-dashboard hidden>
+        <div class="account-profile">
+          <div>
+            <h2 data-profile-name></h2>
+            <p data-profile-email></p>
+          </div>
+          <button type="button" class="btn btn--ghost" data-logout>Выйти</button>
+        </div>
+
+        <p class="account-message" role="status" data-account-message></p>
+        <div class="account-grid">
+          <section class="account-panel" id="saved-builds" aria-labelledby="savedTitle">
+            <h2 id="savedTitle">Мои сборки</h2>
+            <p data-current-build></p>
+            <form class="account-inline-form" data-build-form>
+              <div>
+                <label class="form-label" for="savedName">Название сборки</label>
+                <input class="form-control" id="savedName" name="name" required maxlength="80" placeholder="Например, ПК для работы">
+              </div>
+              <button type="submit" class="btn btn--accent">Сохранить текущую</button>
+            </form>
+            <a class="btn btn--ghost" href="configurator.html">Перейти в конфигуратор</a>
+            <div class="account-list" data-build-list></div>
+          </section>
+
+          <section class="account-panel" id="loyalty" aria-labelledby="loyaltyTitle">
+            <h2 id="loyaltyTitle">Программа лояльности</h2>
+            <p class="account-points"><strong data-loyalty-rate>0%</strong> скидка на новую сборку</p>
+            <p data-loyalty-level></p>
+            <p>Заказы со статусом «Собран» за этот месяц: <strong data-loyalty-total>0 ₽</strong>.</p>
+            <ul class="contact-notes">
+              <li>5% при сумме от 100 000 ₽ за календарный месяц.</li>
+              <li>7% для резидентов сразу после вступления.</li>
+            </ul>
+            <p>Применяется большая скидка. Итог со скидкой отображается в заявке.</p>
+            <button class="btn btn--accent" type="button" data-resident>Стать резидентом</button>
+          </section>
+
+          <section class="account-panel" id="orders" aria-labelledby="ordersTitle">
+            <h2 id="ordersTitle">История заказов</h2>
+            <p>Заявки фиксируют выбранные комплектующие и бюджет для самостоятельной сборки. Оплата и доставка через сайт не оформляются.</p>
+            <div class="account-list" data-order-list></div>
+          </section>
+
+          <section class="account-panel" id="addresses" aria-labelledby="addressesTitle">
+            <h2 id="addressesTitle">Сохранённые адреса</h2>
+            <form class="d-grid gap-3" data-address-form>
+              <div>
+                <label class="form-label" for="addressLabel">Название</label>
+                <input class="form-control" id="addressLabel" name="label" required maxlength="40" placeholder="Например, Дом">
+              </div>
+              <div>
+                <label class="form-label" for="addressText">Адрес</label>
+                <input class="form-control" id="addressText" name="address" required minlength="6" maxlength="240" placeholder="Город, улица, дом, квартира">
+              </div>
+              <div class="d-flex flex-wrap gap-2">
+                <button type="submit" class="btn btn--accent">Сохранить адрес</button>
+                <button type="button" class="btn btn--ghost" data-address-cancel hidden>Отменить изменение</button>
+              </div>
+            </form>
+            <div class="account-list" data-address-list></div>
+          </section>
+        </div>
+      </div>
+
+      <section class="section account-benefits" data-account-benefits aria-labelledby="accountBenefits">
+        <div class="section__head"><h2 class="section__title" id="accountBenefits">Скидки в личном кабинете</h2></div>
+        <div class="account-benefits__grid">
+          <article class="contact-card">
+            <strong>5%</strong>
+            <h3 class="contact-card__title">За покупки в течение месяца</h3>
+            <p>Отметьте заявки собранными. Если сумма за календарный месяц достигнет 100 000 ₽, скидка появится в новых заявках.</p>
+          </article>
+          <article class="contact-card">
+            <strong>7%</strong>
+            <h3 class="contact-card__title">Для резидентов BuildPC</h3>
+            <p>Войдите в кабинет и выберите «Стать резидентом». Скидка действует на новые заявки и учитывается в итоговой сумме.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section internal-guide" aria-labelledby="accountGuide">
+        <div class="section__head"><h2 class="section__title" id="accountGuide">Работа со сборками</h2></div>
+        <div class="support-topics">
+          <article class="contact-card">
+            <h3 class="contact-card__title">Сохраните несколько вариантов</h3>
+            <p>Сохраните варианты под разные бюджеты. Открыв один из них в конфигураторе, можно изменить детали и сохранить новый вариант.</p>
+            <a class="btn btn--ghost" href="configurator.html">Открыть конфигуратор</a>
+          </article>
+          <article class="contact-card">
+            <h3 class="contact-card__title">Зафиксируйте итог</h3>
+            <p>Из сохранённой совместимой сборки можно создать заявку. Цена, состав и адрес останутся в истории.</p>
+          </article>
+          <article class="contact-card">
+            <h3 class="contact-card__title">Скачайте список деталей</h3>
+            <p>Для сравнения в магазине откройте нужную сборку и нажмите «Скачать список .txt».</p>
+          </article>
+        </div>
+      </section>
+    </div>
+    <noscript><p class="container py-3">Для входа в кабинет включите JavaScript.</p></noscript>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <a class="site-logo" href="index.html">
+            <span class="site-logo__mark" aria-hidden="true"></span>
+            <span>Build<span class="site-logo__accent">PC</span></span>
+          </a>
+          <p class="site-footer__about">Подбор комплектующих и проверка совместимости сборки ПК.</p>
+        </div>
+        <nav aria-label="Навигация в подвале">
+          <h2 class="site-footer__title">Навигация</h2>
+          <ul class="site-footer__nav">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="catalog.html">Каталог</a></li>
+            <li><a href="configurator.html">Конфигуратор</a></li>
+            <li><a href="delivery.html">Доставка</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2 class="site-footer__title">Контакты</h2>
+          <address class="site-footer__contacts">
+            <span>Завгороднев Ярослав Александрович<br><small>Главный менеджер</small></span>
+            <div class="site-footer__actions">
+              <a class="btn btn-sm btn--footer" href="tel:+79670906381"><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7l.5 3.2a2 2 0 0 1-.5 2.1l-1.2 1.2a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5l3.2.5a2 2 0 0 1 1.7 1.9Z"/></svg> +7 (967) 090-63-81</a>
+              <a class="btn btn-sm btn--footer" href="mailto:unit90780@gmail.com"><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg> unit90780@gmail.com</a>
+            </div>
+          </address>
+        </div>
+        <div>
+          <h2 class="site-footer__title"><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Когда звонить</h2>
+          <p class="mb-0">Пн–Пт, 10:00–19:00 по Москве.<br>На почту можно написать в любое время.</p>
+          <h2 class="site-footer__title mt-3">BuildPC в Москве</h2>
+          <a class="btn btn-sm btn--footer site-footer__map" href="https://yandex.ru/maps/?text=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%92%D0%BE%D0%BB%D0%B3%D0%BE%D0%B3%D1%80%D0%B0%D0%B4%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%2C%2021%2C%20%D1%81%D1%82%D1%80.%2010" target="_blank" rel="noopener">
+            <svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 10c0 5-7 10-7 10s-7-5-7-10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2"/></svg> Москва, Волгоградский проспект, 21, стр. 10
+          </a>
+        </div>
+      </div>
+      <section class="site-footer__team" aria-labelledby="footerTeam">
+        <h2 class="site-footer__title" id="footerTeam">Команда <small>· демонстрационные контакты</small></h2>
+        <ul>
+          <li><strong>Алина Петровна</strong><span>Менеджер</span><span><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7l.5 3.2a2 2 0 0 1-.5 2.1l-1.2 1.2a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5l3.2.5a2 2 0 0 1 1.7 1.9Z"/></svg> 8 925 774 8374</span><span><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Пн–Пт, 10:00–18:00 МСК</span></li>
+          <li><strong>Егор Смирнов</strong><span>Возвраты</span><span><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7l.5 3.2a2 2 0 0 1-.5 2.1l-1.2 1.2a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5l3.2.5a2 2 0 0 1 1.7 1.9Z"/></svg> 8 925 774 8734</span><span><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Вт–Сб, 11:00–19:00 МСК</span></li>
+          <li><strong>Дмитрий Волков</strong><span>Мастер по сборке</span><span><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7l.5 3.2a2 2 0 0 1-.5 2.1l-1.2 1.2a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5l3.2.5a2 2 0 0 1 1.7 1.9Z"/></svg> 8 925 774 8347</span><span><svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Ср–Вс, 12:00–20:00 МСК</span></li>
+        </ul>
+      </section>
+      <div class="site-footer__bottom">
+        <span>© 2026 BuildPC. Все права защищены.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/compat.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/site-search.js"></script>
+  <script src="js/fulfillment.js"></script>
+  <script src="js/profiles.js"></script>
+  <script src="js/account.js"></script>
+</body>
+</html>
